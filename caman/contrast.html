@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>CamanJS Examples: Curves</title>
-  
+  <title>CamanJS Examples</title>
+    <link rel="stylesheet" href="../css/jquery-ui.min.css">
+
     <script type="text/javascript" src="../js/caman.full.js"></script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
 
     <script>
         $(document).ready(function(){
             photo=Caman("#photo");
-            
-            $("#slider").change(function(){
-                var x = parseInt(this.value);
-                photo.revert();
-                console.log(x);
-                photo.contrast(x).render();
+
+            $("#slider").slider({
+               value:0,
+               slide: function( event, ui ) {
+                    photo.revert();
+                    photo.contrast(ui.value).render();
+               }
             });
+            
         });
     </script>
 
 </head>
 <body>
-    <input id="slider" type ="range" min ="-100" max="100" step ="1"/>
+    <div id="slider"></div>
     <br>
     <img id="photo" src="../img/photo.jpg">
 </body>
