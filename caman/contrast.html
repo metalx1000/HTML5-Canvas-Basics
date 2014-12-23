@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CamanJS Examples: Curves</title>
+  
+    <script type="text/javascript" src="../js/caman.full.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            photo=Caman("#photo");
+            
+            $("#slider").change(function(){
+                var x = parseInt(this.value);
+                photo.revert();
+                console.log(x);
+                photo.contrast(x).render();
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <input id="slider" type ="range" min ="-100" max="100" step ="1"/>
+    <br>
+    <img id="photo" src="../img/photo.jpg">
+</body>
+</html>
+
